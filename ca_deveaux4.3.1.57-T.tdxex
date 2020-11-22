@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tdx version="1.0">
+  <meta name="created" value="2020-09-29T15:20:37Z"/>
+  <meta name="atversion" value="4.10.17.1"/>
+  <meta name="attype" value="DeltaAT"/>
+  <meta name="currency" value="dollar"/>
+  <meta name="numberpts" value="28"/>
+  <meta name="toleranceallowed" value="yes"/>
+  <meta name="format" value="algorithmic"/>
+  <meta name="saved" value="2020-09-30T17:56:14Z"/>
+  <meta name="objects" value="array,datatable,field,fillin,formula,popupstep,var"/>
+  <meta name="qtype" value="SA,Fillin"/>
+  <meta name="desc" value="2020-09-30 \\ JJG.GEXdev \\ MOD \\ ca_deveaux4.3.1.57-T from: statdm5d.2.CE.83-T&#10;---"/>
+  <meta name="difficulty" value="2"/>
+  <meta name="problemtype" value="exercise"/>
+  <toolbuttons names="over,mnum,super,abs,sqrt,nroot,sub,pair"/>
+
+  <styles>
+    <font name="Normal.2" base="Normal" size="10"/>
+    <font name="Normal.3" base="Normal" size="9"/>
+    <font name="Normal.4" base="Normal" size="8"/>
+    <font name="Normal.5" base="Normal" size="7"/>
+    <font name="Normal.6" base="Normal" size="6"/>
+    <font name="Normal.1" base="Normal" size="5"/>
+    <font name="Normal.7" base="Normal" size="4"/>
+    <font name="Normal.8" base="Normal" size="3"/>
+    <font name="Normal.15" base="Normal" size="2"/>
+    <font name="Normal.16" base="Normal" color="clGray" size="12"/>
+    <para name="Normal.1" base="Normal" leftindent="24"/>
+    <para name="Normal.2" base="Normal" align="right"/>
+  </styles>
+
+  <objects>
+<array name="Data">
+<data expr="494"/>
+<data expr="497"/>
+<data expr="507"/>
+<data expr="516"/>
+<data expr="423"/>
+<data expr="492"/>
+<data expr="511"/>
+<data expr="520"/>
+<data expr="511"/>
+<data expr="493"/>
+<data expr="506"/>
+<data expr="454"/>
+<data expr="477"/>
+<data expr="488"/>
+<data expr="504"/>
+<data expr="470"/>
+<data expr="490"/>
+<data expr="532"/>
+<data expr="524"/>
+<data expr="482"/>
+<data expr="486"/>
+<data expr="408"/>
+<data expr="512"/>
+<data expr="495"/>
+<data expr="502"/>
+<data expr="504"/>
+<data expr="492"/>
+<data expr="475"/>
+<data expr="510"/>
+<data expr="486"/>
+<data expr="494"/>
+<data expr="521"/>
+<data expr="420"/>
+<data expr="492"/>
+<data expr="470"/>
+</array><array name="Country">
+<data expr="&#39;Australia&#39;"/>
+<data expr="&#39;Austria&#39;"/>
+<data expr="&#39;Belgium&#39;"/>
+<data expr="&#39;Canada&#39;"/>
+<data expr="&#39;Chile&#39;"/>
+<data expr="&#39;Czech Republic&#39;"/>
+<data expr="&#39;Denmark&#39;"/>
+<data expr="&#39;Estonia&#39;"/>
+<data expr="&#39;Finland&#39;"/>
+<data expr="&#39;France&#39;"/>
+<data expr="&#39;Germany&#39;"/>
+<data expr="&#39;Greece&#39;"/>
+<data expr="&#39;Hungary&#39;"/>
+<data expr="&#39;Iceland&#39;"/>
+<data expr="&#39;Ireland&#39;"/>
+<data expr="&#39;Israel&#39;"/>
+<data expr="&#39;Italy&#39;"/>
+<data expr="&#39;Japan&#39;"/>
+<data expr="&#39;Korea&#39;"/>
+<data expr="&#39;Latvia&#39;"/>
+<data expr="&#39;Luxembourg&#39;"/>
+<data expr="&#39;Mexico&#39;"/>
+<data expr="&#39;Netherlands&#39;"/>
+<data expr="&#39;New Zealand&#39;"/>
+<data expr="&#39;Norway&#39;"/>
+<data expr="&#39;Poland&#39;"/>
+<data expr="&#39;Portugal&#39;"/>
+<data expr="&#39;Slovak Republic&#39;"/>
+<data expr="&#39;Slovenia&#39;"/>
+<data expr="&#39;Spain&#39;"/>
+<data expr="&#39;Sweden&#39;"/>
+<data expr="&#39;Switzerland&#39;"/>
+<data expr="&#39;Turkey&#39;"/>
+<data expr="&#39;United Kingdom&#39;"/>
+<data expr="&#39;United States&#39;"/>
+</array>
+    <var name="genStart" common="1" type="int">
+      <constraint>
+        <limits>
+          <limit type="ge">1</limit>
+          <limit type="le">33</limit>
+        </limits>
+      </constraint>
+<initvalues>
+<expr>1</expr>
+</initvalues>
+    </var>
+    <var name="genStep" comments="exclusions ensure: (~mean &#60; ~median)" common="1" type="int">
+      <constraint>
+<rprime>33</rprime>
+        <limits>
+          <limit type="ge">1</limit>
+          <limit type="le">32</limit>
+        </limits>
+        <excl>
+          <expr>25</expr>
+          <expr>29</expr>
+          <expr>5</expr>
+          <expr>31</expr>
+          <expr>2</expr>
+        </excl>
+      </constraint>
+<initvalues>
+<expr>1</expr>
+</initvalues>
+    </var>
+<array name="iGen">
+<data expr="mod(fillarray(~n-2,~genStart-1,~genStep),33)+1"/>
+</array><array name="i18">
+<data expr="ceil((~iGen-16)/100)"/>
+</array><array name="i22">
+<data expr="ceil((~iGen-19)/100)"/>
+</array><array name="index" comments="~index always contains 4, 18, 22, 25">
+<data expr="$orderA(~iGen+~i4+~i18+~i22+~i25,4,18,22,25)"/>
+</array>
+    <var name="n" comments="static 25, # of data values" common="1" type="int">
+      <constraint>
+        <incl>
+          <expr>25</expr>
+        </incl>
+      </constraint>
+    </var>
+<array name="iCountry">
+<data expr="~country.~index.01"/>
+<data expr="~country.~index.02"/>
+<data expr="~country.~index.03"/>
+<data expr="~country.~index.04"/>
+<data expr="~country.~index.05"/>
+<data expr="~country.~index.06"/>
+<data expr="~country.~index.07"/>
+<data expr="~country.~index.08"/>
+<data expr="~country.~index.09"/>
+<data expr="~country.~index.10"/>
+<data expr="~country.~index.11"/>
+<data expr="~country.~index.12"/>
+<data expr="~country.~index.13"/>
+<data expr="~country.~index.14"/>
+<data expr="~country.~index.15"/>
+<data expr="~country.~index.16"/>
+<data expr="~country.~index.17"/>
+<data expr="~country.~index.18"/>
+<data expr="~country.~index.19"/>
+<data expr="~country.~index.20"/>
+<data expr="~country.~index.21"/>
+<data expr="~country.~index.22"/>
+<data expr="~country.~index.23"/>
+<data expr="~country.~index.24"/>
+<data expr="~country.~index.25"/>
+</array><array name="iData">
+<data expr="~data.~index.01"/>
+<data expr="~data.~index.02"/>
+<data expr="~data.~index.03"/>
+<data expr="~data.~index.04"/>
+<data expr="~data.~index.05"/>
+<data expr="~data.~index.06"/>
+<data expr="~data.~index.07"/>
+<data expr="~data.~index.08"/>
+<data expr="~data.~index.09"/>
+<data expr="~data.~index.10"/>
+<data expr="~data.~index.11"/>
+<data expr="~data.~index.12"/>
+<data expr="~data.~index.13"/>
+<data expr="~data.~index.14"/>
+<data expr="~data.~index.15"/>
+<data expr="~data.~index.16"/>
+<data expr="~data.~index.17"/>
+<data expr="~data.~index.18"/>
+<data expr="~data.~index.19"/>
+<data expr="~data.~index.20"/>
+<data expr="~data.~index.21"/>
+<data expr="~data.~index.22"/>
+<data expr="~data.~index.23"/>
+<data expr="~data.~index.24"/>
+<data expr="~data.~index.25"/>
+</array><popupstep name="PS1" iconindex="1" tooltiptext="OECD Mathematics Scores" printtitle="" url="" overridetooltip="1"><message cw="35" ch="0">
+<display step="popup1"/>
+</message></popupstep><array name="i4" comments="shifts data to insert 4">
+<data expr="ceil((~iGen-3)/100)"/>
+</array>
+    <var name="min" common="1" type="int">
+      <constraint>
+        <incl>
+          <expr>~iDataSort.1</expr>
+        </incl>
+      </constraint>
+    </var>
+    <var name="max" common="1" type="int">
+      <constraint>
+        <incl>
+          <expr>~iDataSort.~n</expr>
+        </incl>
+      </constraint>
+    </var>
+    <var name="median" common="1" type="int">
+      <constraint>
+        <incl>
+          <expr>$MEDIAN(~iData)</expr>
+        </incl>
+      </constraint>
+    </var>
+    <var name="mean" common="1" type="real" format="-.##">
+      <constraint>
+        <incl>
+          <expr>$mean(~iData)</expr>
+        </incl>
+      </constraint>
+    </var>
+<array name="iDataSort">
+<data expr="$orderA(~iData)"/>
+</array><array name="IQR">
+<data expr="~aq3-~aq1"/>
+</array><array name="AQ1" comments="First quartiles as calculated by:&#10;1. median of bottom half - w/o median&#10;2. excel&#10;3. minitab&#10;4. median of bottom half - w/ median&#10;5. using rounded index if not half or whole">
+<data expr="$MEDIAN(SUBARRAY(~AdataA,1,FLOOR(~AdataA.length/2)))"/>
+<data expr="SUBARRAY(~AdataA,FLOOR(0.25*(~AdataA.length-1)+1),1)+(0.25*(~AdataA.length-1)+1-FLOOR(0.25*(~AdataA.length-1)+1))*(SUBARRAY(~AdataA,CEIL(0.25*(~AdataA.length-1)+1),1)-SUBARRAY(~AdataA,FLOOR(0.25*(~AdataA.length-1)+1),1))"/>
+<data expr="SUBARRAY(~AdataA,FLOOR(0.25*(~AdataA.length+1)),1)+(0.25*(~AdataA.length+1)-FLOOR(0.25*(~AdataA.length+1)))*(SUBARRAY(~AdataA,CEIL(0.25*(~AdataA.length+1)),1)-SUBARRAY(~AdataA,FLOOR(0.25*(~AdataA.length+1)),1))"/>
+<data expr="$MEDIAN(SUBARRAY(~AdataA,1,CEIL(~AdataA.length/2)))"/>
+<data expr="SUBARRAY(~AdataA,FLOOR(IFTHEN(MOD(~AdataA.length+1,2)=0,0.25*(~AdataA.length+1),ROUND(0.25*(~AdataA.length+1),0))),1)+(0.25*(~AdataA.length+1)-FLOOR(IFTHEN(MOD(~AdataA.length+1,2)=0,0.25*(~AdataA.length+1),ROUND(0.25*(~AdataA.length+1),0))))*(SUBARRAY(~AdataA,CEIL(IFTHEN(MOD(~AdataA.length+1,2)=0,0.25*(~AdataA.length+1),ROUND(0.25*(~AdataA.length+1),0))),1)-SUBARRAY(~AdataA,FLOOR(IFTHEN(MOD(~AdataA.length+1,2)=0,0.25*(~AdataA.length+1),ROUND(0.25*(~AdataA.length+1),0))),1))"/>
+</array><array name="AQ3" comments="Third quartiles as calculated by:&#10;1. median of top half - w/o median&#10;2. excel&#10;3. minitab&#10;4. median of top half - w/ median&#10;5. using rounded index if not half or whole">
+<data expr="$MEDIAN(SUBARRAY(~AdataA,CEIL(~AdataA.length/2)+1,FLOOR(~AdataA.length/2)))"/>
+<data expr="SUBARRAY(~AdataA,FLOOR(0.75*(~AdataA.length-1)+1),1)+(0.75*(~AdataA.length-1)+1-FLOOR(0.75*(~AdataA.length-1)+1))*(SUBARRAY(~AdataA,CEIL(0.75*(~AdataA.length-1)+1),1)-SUBARRAY(~AdataA,FLOOR(0.75*(~AdataA.length-1)+1),1))"/>
+<data expr="SUBARRAY(~AdataA,FLOOR(0.75*(~AdataA.length+1)),1)+(0.75*(~AdataA.length+1)-FLOOR(0.75*(~AdataA.length+1)))*(SUBARRAY(~AdataA,CEIL(0.75*(~AdataA.length+1)),1)-SUBARRAY(~AdataA,FLOOR(0.75*(~AdataA.length+1)),1))"/>
+<data expr="$MEDIAN(SUBARRAY(~AdataA,FLOOR(~AdataA.length/2)+1,CEIL(~AdataA.length/2)))"/>
+<data expr="SUBARRAY(~AdataA,FLOOR(IFTHEN(MOD(~AdataA.length+1,2)=0,0.75*(~AdataA.length+1),ROUND(0.75*(~AdataA.length+1),0))),1)+(0.75*(~AdataA.length+1)-FLOOR(IFTHEN(MOD(~AdataA.length+1,2)=0,0.75*(~AdataA.length+1),ROUND(0.75*(~AdataA.length+1),0))))*(SUBARRAY(~AdataA,CEIL(IFTHEN(MOD(~AdataA.length+1,2)=0,0.75*(~AdataA.length+1),ROUND(0.75*(~AdataA.length+1),0))),1)-SUBARRAY(~AdataA,FLOOR(IFTHEN(MOD(~AdataA.length+1,2)=0,0.75*(~AdataA.length+1),ROUND(0.75*(~AdataA.length+1),0))),1))"/>
+</array><array name="AdataA">
+<data expr="~iDataSort"/>
+</array>
+    <var name="std" common="1" type="real" format="-.##">
+      <constraint>
+        <incl>
+          <expr>$StdDev(~iData)</expr>
+        </incl>
+      </constraint>
+    </var>
+    <field name="S51" format=".#" rule="numeric">
+      <solution>
+        <expr>~min</expr>
+      </solution>
+    </field>
+    <field name="S52" format=".#" tol=".1" enforceformatting="1" rule="numeric">
+      <solution>
+        <expr>~AQ1.1</expr>
+      </solution>
+      <solution>
+        <expr>~AQ1.2</expr>
+      </solution>
+      <solution>
+        <expr>~AQ1.3</expr>
+      </solution>
+      <solution>
+        <expr>~AQ1.4</expr>
+      </solution>
+      <solution>
+        <expr>~AQ1.5</expr>
+      </solution>
+    </field>
+    <field name="S53" format=".#" rule="numeric">
+      <solution>
+        <expr>~median</expr>
+      </solution>
+    </field>
+    <field name="S54" format="" tol=".1" enforceformatting="1" rule="numeric">
+      <solution>
+        <expr>~AQ3.1</expr>
+      </solution>
+      <solution>
+        <expr>~AQ3.2</expr>
+      </solution>
+      <solution>
+        <expr>~AQ3.3</expr>
+      </solution>
+      <solution>
+        <expr>~AQ3.4</expr>
+      </solution>
+      <solution>
+        <expr>~AQ3.5</expr>
+      </solution>
+    </field>
+    <field name="S55" format=".#" rule="numeric">
+      <solution>
+        <expr>~max</expr>
+      </solution>
+    </field>
+    <field name="S1" format=".#" tol=".1" enforceformatting="1" rule="numeric">
+      <solution>
+        <expr>~iqr.1</expr>
+      </solution>
+      <solution>
+        <expr>~iqr.2</expr>
+      </solution>
+      <solution>
+        <expr>~iqr.3</expr>
+      </solution>
+      <solution>
+        <expr>~iqr.4</expr>
+      </solution>
+      <solution>
+        <expr>~iqr.5</expr>
+      </solution>
+      <defmsgwrong cw="70" ch="0">
+        <display step="msg2"/>
+      </defmsgwrong>
+    </field>
+    <field name="S2" format="" tol=".01" enforceformatting="1" rule="numeric">
+      <solution>
+        <expr>~mean</expr>
+      </solution>
+      <defmsgwrong cw="70" ch="0">
+        <display step="msg3"/>
+      </defmsgwrong>
+    </field>
+    <field name="S3" format="" tol=".01" enforceformatting="1" rule="numeric">
+      <solution>
+        <expr>~std</expr>
+      </solution>
+      <defmsgwrong cw="70" ch="0">
+        <display step="msg4"/>
+      </defmsgwrong>
+    </field>
+<datatable name="DT1" tooltiptext="" firstrowisheader="1">
+<columns>
+<column>
+<item value="Country"/>
+<item value="=~iCountry"/>
+</column>
+</columns>
+<columns>
+<column>
+<item value="Score"/>
+<item value="=~iData"/>
+</column>
+</columns>
+</datatable><array name="zVal">
+<data expr="~Zmean+~Zstd*1"/>
+<data expr="~Zmean+~Zstd*2"/>
+<data expr="~Zmean+~Zstd*3"/>
+</array>
+    <var name="Zstd" common="1" type="int">
+      <constraint>
+        <limits>
+          <limit type="ge">81</limit>
+          <limit type="le">94</limit>
+        </limits>
+      </constraint>
+<initvalues>
+<expr>88</expr>
+</initvalues>
+    </var>
+<array name="i25">
+<data expr="ceil((~iGen-21)/100)"/>
+</array><array name="zNeg">
+<data expr="~Zmean-~Zstd*1"/>
+<data expr="~Zmean-~Zstd*2"/>
+<data expr="~Zmean-~Zstd*3"/>
+</array>
+    <fillin name="FL1" maxtries="3" correct="0" shuffle="1">
+      <choice value="left-skewed."/>
+      <choice value="right-skewed."/>
+    </fillin>
+    <fillin name="FL2" correct="0" shuffle="1" align="Center">
+      <choice value="left"/>
+      <choice value="right"/>
+    </fillin>
+    <fillin name="FL3" correct="0" shuffle="1" align="Center">
+      <choice value="mean down toward the smaller values, whereas the median"/>
+      <choice value="median up toward the larger values, whereas the mean"/>
+    </fillin>
+    <fillin name="FL4" correct="0" shuffle="1" align="Center">
+      <choice value="mean toward it, whereas the median"/>
+      <choice value="median toward it, whereas the mean"/>
+    </fillin>
+    <fillin name="FL5" correct="0" shuffle="1" align="Center">
+      <choice value="5-number summary is"/>
+      <choice value="mean and standard deviation are"/>
+    </fillin>
+    <fillin name="FL6" maxtries="3" correct="0" shuffle="1">
+      <choice value="the outliers are resisted."/>
+      <choice value="there are no outliers."/>
+      <choice value="outliers improve the accuracy."/>
+    </fillin>
+    <var name="Xindex" common="1" type="int">
+      <constraint>
+        <limits>
+          <limit type="ge">1</limit>
+          <limit type="le">25</limit>
+        </limits>
+        <excl>
+          <expr>4</expr>
+        </excl>
+      </constraint>
+<initvalues>
+<expr>1</expr>
+</initvalues>
+    </var>
+    <var name="Xcountry" common="1" type="text">
+      <constraint>
+        <incl>
+          <expr>~iCountry.~Xindex</expr>
+        </incl>
+      </constraint>
+    </var>
+    <var name="Xcomp" comments="TF: Canada &#62; ~Xdata" common="1" type="text">
+      <constraint>
+        <incl>
+          <expr>~iData.4&#60;~iData.~Xindex</expr>
+        </incl>
+      </constraint>
+    </var>
+    <var name="Xdata" common="1" type="int">
+      <constraint>
+        <incl>
+          <expr>~iData.~Xindex</expr>
+        </incl>
+      </constraint>
+    </var>
+<array name="the">
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;the &#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;the &#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;&#39;"/>
+<data expr="&#39;the &#39;"/>
+<data expr="&#39;the &#39;"/>
+</array><array name="iThe">
+<data expr="~the.~index.01"/>
+<data expr="~the.~index.02"/>
+<data expr="~the.~index.03"/>
+<data expr="~the.~index.04"/>
+<data expr="~the.~index.05"/>
+<data expr="~the.~index.06"/>
+<data expr="~the.~index.07"/>
+<data expr="~the.~index.08"/>
+<data expr="~the.~index.09"/>
+<data expr="~the.~index.10"/>
+<data expr="~the.~index.11"/>
+<data expr="~the.~index.12"/>
+<data expr="~the.~index.13"/>
+<data expr="~the.~index.14"/>
+<data expr="~the.~index.15"/>
+<data expr="~the.~index.16"/>
+<data expr="~the.~index.17"/>
+<data expr="~the.~index.18"/>
+<data expr="~the.~index.19"/>
+<data expr="~the.~index.20"/>
+<data expr="~the.~index.21"/>
+<data expr="~the.~index.22"/>
+<data expr="~the.~index.23"/>
+<data expr="~the.~index.24"/>
+<data expr="~the.~index.25"/>
+</array>
+    <fillin name="FL7" correct="0" shuffle="1" align="Center">
+      <choice value="twenty-five"/>
+      <choice value="twenty"/>
+      <choice value="fifteen"/>
+      <choice value="ten"/>
+      <choice value="thirty"/>
+    </fillin>
+    <field name="S4" format=".#" rule="numeric">
+      <solution>
+        <expr>~max</expr>
+      </solution>
+    </field>
+    <field name="S5" format=".#" rule="numeric">
+      <solution>
+        <expr>~min</expr>
+      </solution>
+    </field>
+    <field name="S6" format=".#" rule="numeric">
+      <solution>
+        <expr>~median</expr>
+      </solution>
+    </field>
+    <field name="S7" format=".#" tol=".1" enforceformatting="1" rule="numeric">
+      <solution>
+        <expr>~iqr.1</expr>
+      </solution>
+      <solution>
+        <expr>~iqr.2</expr>
+      </solution>
+      <solution>
+        <expr>~iqr.3</expr>
+      </solution>
+      <solution>
+        <expr>~iqr.4</expr>
+      </solution>
+      <solution>
+        <expr>~iqr.5</expr>
+      </solution>
+    </field>
+    <field name="S8" format=".#" tol=".1" enforceformatting="1" rule="numeric">
+      <solution>
+        <expr>~AQ1.1</expr>
+      </solution>
+      <solution>
+        <expr>~AQ1.2</expr>
+      </solution>
+      <solution>
+        <expr>~AQ1.3</expr>
+      </solution>
+      <solution>
+        <expr>~AQ1.4</expr>
+      </solution>
+      <solution>
+        <expr>~AQ1.5</expr>
+      </solution>
+    </field>
+    <field name="S9" format=".#" tol=".1" enforceformatting="1" rule="numeric">
+      <solution>
+        <expr>~AQ3.1</expr>
+      </solution>
+      <solution>
+        <expr>~AQ3.2</expr>
+      </solution>
+      <solution>
+        <expr>~AQ3.3</expr>
+      </solution>
+      <solution>
+        <expr>~AQ3.4</expr>
+      </solution>
+      <solution>
+        <expr>~AQ3.5</expr>
+      </solution>
+    </field>
+    <field name="S10" format=".#" rule="numeric">
+      <solution>
+        <expr>~data.4</expr>
+      </solution>
+    </field>
+    <fillin name="FL8" correct="0" shuffle="1" align="Center">
+      <choice value="top 25%"/>
+      <choice value="bottom 25%"/>
+      <choice value="middle 50%"/>
+    </fillin>
+    <field name="S11" format="" rule="numeric">
+      <solution>
+        <expr>~zNeg.1</expr>
+      </solution>
+    </field>
+    <field name="S12" format="" rule="numeric">
+      <solution>
+        <expr>~zVal.1</expr>
+      </solution>
+    </field>
+    <var name="Zmean" common="1" type="int">
+      <constraint>
+        <incl>
+          <expr>~data.4</expr>
+        </incl>
+      </constraint>
+    </var>
+    <field name="S13" format="" rule="numeric">
+      <solution>
+        <expr>~zNeg.2</expr>
+      </solution>
+    </field>
+    <field name="S14" format="" rule="numeric">
+      <solution>
+        <expr>~zVal.2</expr>
+      </solution>
+    </field>
+    <field name="S15" format="" rule="numeric">
+      <solution>
+        <expr>~zVal.3</expr>
+      </solution>
+    </field>
+    <formula name="Fiqr" dofunc="1">
+      <expr>IQR=Q3-Q1</expr>
+    </formula>
+    <formula name="Fmean" dofunc="1">
+      <expr>@OVERBAR{y}=@DIV{Total;n}=@DIV{@SUM{;}y;n}</expr>
+    </formula>
+    <formula name="Fsd" dofunc="1">
+      <expr>s=@RT{@DIV{@SUM{;}@PAREN{y-@OVERBAR{y}}@Sup{2};n-1}}</expr>
+    </formula>
+    <formula name="FyBarr" dofunc="1">
+      <expr>@OVERBAR{y}</expr>
+    </formula>
+    <formula name="F1" dofunc="1">
+      <expr>@DIV{n+1;2}</expr>
+    </formula>
+    <formula name="F2" dofunc="1">
+      <expr>@DIV{n;2}</expr>
+    </formula>
+    <var name="Xtext" common="1" type="text">
+      <constraint>
+        <incl>
+          <expr>&#39;lower&#39;</expr>
+        </incl>
+      </constraint>
+      <constraint>
+        <cond>~xComp</cond>
+        <incl>
+          <expr>&#39;higher&#39;</expr>
+        </incl>
+      </constraint>
+    </var>
+    <var name="XtextW" common="1" type="text">
+      <constraint>
+        <incl>
+          <expr>&#39;higher&#39;</expr>
+        </incl>
+      </constraint>
+      <constraint>
+        <cond>~xComp</cond>
+        <incl>
+          <expr>&#39;lower&#39;</expr>
+        </incl>
+      </constraint>
+    </var>
+    <fillin name="FL0" correct="0" shuffle="1" align="Center">
+      <choice value="~xText than"/>
+      <choice value="~xTextW than"/>
+      <choice value="equal to"/>
+    </fillin>
+  </objects>
+
+  <windows>
+    <window name="top">
+      <step name="step1">
+<rvxml>
+<document stringtags="0">
+<text>The Programme for International Student Assessment (PISA) reported 2015 average mathematics performance scores for 15-year-olds in </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">n</control>
+<text br="0"> Organisation for Economic Co-operation and Development (OECD) nations. </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">Country.18</control>
+<text br="0"> led the group, with an average score of </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">Data.18</control>
+<text br="0">, while </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">Country.22</control>
+<text br="0"> had the lowest average of </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">Data.22</control>
+<text br="0">. (Non-OECD Singapore topped everyone, with a 564 average.) The average scores for each nation are given.</text>
+<text></text>
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">PS1</control>
+<text br="0"> Click the icon to view the OECD mathematics scores.</text>
+<text></text>
+<text>Complete parts a through d.</text>
+</document>
+</rvxml>
+      </step>
+    </window>
+    <window name="bottom">
+      <step name="step2">
+        <msgwrong cw="70" ch="0">
+          <display step="msg1"/>
+        </msgwrong>
+<rvxml>
+<document stringtags="0">
+<text>a) Find the 5-number summary and IQR, the mean, and the standard deviation of these national averages. Can you explain why the mean is a bit smaller than the median? </text>
+<text></text>
+<text>Find the 5-number summary.</text>
+<text></text>
+<table rows="3" cols="5" borderstyle="color" borderhspacing="-1" bordervspacing="-1" cellborderstyle="color" cellborderwidth="1" cellhspacing="-1" cellvspacing="-1" color="clNone">
+<row>
+<cell colspan="5" width="500" leftbordervisible="0" rightbordervisible="0" topbordervisible="0" bottombordervisible="0">
+<text textstyle="Instructions">(Type integers or decimals rounded to the nearest tenth as needed.)</text>
+</cell>
+<cell></cell>
+<cell></cell>
+<cell></cell>
+<cell></cell>
+</row>
+<row>
+<cell th="col" width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0">
+<text parastyle="Center">Min.</text>
+</cell>
+<cell th="col" width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0">
+<text parastyle="Center">1st Qu.</text>
+</cell>
+<cell th="col" width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0">
+<text parastyle="Center">Median</text>
+</cell>
+<cell th="col" width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0">
+<text parastyle="Center">3rd Qu.</text>
+</cell>
+<cell th="col" width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0">
+<text parastyle="Center">Max.</text>
+</cell>
+</row>
+<row>
+<cell width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0" bottombordervisible="0">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">S51</control>
+</cell>
+<cell width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0" bottombordervisible="0">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">S52</control>
+</cell>
+<cell width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0" bottombordervisible="0">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">S53</control>
+</cell>
+<cell width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0" bottombordervisible="0">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">S54</control>
+</cell>
+<cell width="100" leftbordervisible="0" rightbordervisible="0" topbordervisible="0" bottombordervisible="0">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">S55</control>
+</cell>
+</row>
+</table>
+</document>
+</rvxml>
+      </step>
+      <step name="step4">
+<rvxml>
+<document stringtags="0">
+<text>Find the IQR of these national averages.</text>
+<text textstyle="Instructions"></text>
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">S1</control>
+<text textstyle="Instructions" br="0"> (Type an integer or decimal rounded to the nearest tenth as needed.)</text>
+</document>
+</rvxml>
+      </step>
+      <step name="step5">
+<rvxml>
+<document stringtags="0">
+<text>Find the mean of these national averages.</text>
+<text></text>
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">S2</control>
+<text br="0"> </text>
+<text textstyle="Instructions" br="0">(Type an integer or decimal rounded to the nearest hundredth as needed.)</text>
+</document>
+</rvxml>
+      </step>
+      <step name="step6">
+<rvxml>
+<document stringtags="0">
+<text>Find the standard deviation of these national averages.</text>
+<text></text>
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">S3</control>
+<text br="0"> </text>
+<text textstyle="Instructions" br="0">(Type an integer or decimal rounded to the nearest hundredth as needed.)</text>
+</document>
+</rvxml>
+      </step>
+      <step name="step7">
+        <msgwrong cw="70" ch="0">
+          <display step="msg5"/>
+        </msgwrong>
+<rvxml>
+<document stringtags="0">
+<text>Can you explain why the mean is a bit smaller than the median? </text>
+<text></text>
+<text>The distribution of average scores is </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FL1</control>
+<text br="0"> The long </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FL2</control>
+<text br="0"> tail pulls the </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FL3</control>
+<text br="0"> is resistant.</text>
+</document>
+</rvxml>
+      </step>
+      <step name="step8">
+        <msgwrong cw="70" ch="0">
+          <display step="msg6"/>
+        </msgwrong>
+<rvxml>
+<document stringtags="0">
+<text>b) Which summary of the data would you report? Why?</text>
+<text></text>
+<text>The </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FL5</control>
+<text br="0"> the best summary of the data because </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FL6</control>
+</document>
+</rvxml>
+      </step>
+      <step name="step9">
+        <msgwrong cw="70" ch="0">
+          <display step="msg7"/>
+        </msgwrong>
+<rvxml>
+<document stringtags="0">
+<text>c) Write a brief summary of the performance of 15-year-olds in OECD countries. Be sure to comment on the performance of Canada and </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">iThe.~Xindex</control>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">Xcountry</control>
+<text br="0">.</text>
+<text></text>
+<text>Data was collected from </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FL7</control>
+<text br="0"> countries that participated in the program. The highest national average is </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S4</control>
+<text br="0"> and the lowest is </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S5</control>
+<text br="0">. The median national average is </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S6</control>
+<text br="0">. The interquartile range is </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S7</control>
+<text br="0">. Twenty-five percent of the participating countries had a national average </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S8</control>
+<text br="0"> or below and at least 25% of the countries had a national average of </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S9</control>
+<text br="0"> or above. Canada&#39;s national average (which is </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S10</control>
+<text br="0">) is in the </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FL8</control>
+<text br="0"> of all participating countries and is </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FL0</control>
+<text br="0"> </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">iThe.~Xindex</control>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">Xcountry</control>
+<text br="0">.</text>
+<text textstyle="Instructions">(Type integers or decimals rounded to the nearest tenth as needed.)</text>
+</document>
+</rvxml>
+      </step>
+      <step name="step10">
+        <msgwrong cw="70" ch="0">
+          <display step="msg8"/>
+        </msgwrong>
+<rvxml>
+<document stringtags="0">
+<text>d) In Canada, the standard deviation of the individual students&#39; scores was </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">Zstd</control>
+<text br="0"> and the distribution was fairly bell-shaped. About 68% of students scored between a lower bound of </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S11</control>
+<text br="0"> and an upper bound of </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S12</control>
+<text br="0">. Only about 5% scored less than </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S13</control>
+<text br="0"> or more than </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S14</control>
+<text br="0">. Only a real math genius could have scored above </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">S15</control>
+<text br="0">.</text>
+<text textstyle="Instructions">(Round to the nearest integer as needed.) </text>
+</document>
+</rvxml>
+      </step>
+    </window>
+    <window name="feedback">
+      <step name="msg1">
+<rvxml>
+<document stringtags="0">
+<text>At least one of your answers is incorrect. Technology can be used to quickly and accurately find the 5-number summary. A 5-number summary consists of minimum, Q1, median, Q3, and maximum. The median is the middle value; half the values are above and half are below the median. To find the median of a batch of n numbers, order the values first. If n is odd, the median is the middle value. This value is in the </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">F1</control>
+<text br="0"> position. When n is even, there are two middle values. Then, the median is the average of the two values in positions </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">F2</control>
+<text br="0"> and </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">F2</control>
+<tdxsym br="0">+</tdxsym>
+<text br="0">1. To find the quartiles of an ordered batch of n numbers, start by splitting the batch into two halves at the median. The lower quartile is the median of the lower half, and the upper quartile is the median of the upper half.</text>
+</document>
+</rvxml>
+      </step>
+      <step name="msg2">
+<rvxml>
+<document stringtags="0">
+<text>Technology can be used to quickly and accurately find the interquartile range (IQR). The IQR is the difference between the first and third quartiles. The lower quartile is the median of the lower half, and the upper quartile is the median of the upper half.</text>
+<text></text>
+<control parastyle="Normal.1" vshiftabs="1" spacing="1" textstyle="Normal" data="">Fiqr</control>
+</document>
+</rvxml>
+      </step>
+      <step name="msg3">
+<rvxml>
+<document stringtags="0">
+<text>Technology can be used to quickly and accurately find the mean of a data set. The mean, </text>
+<control br="0" vshiftabs="1" spacing="1" textstyle="Normal" data="">FyBarr</control>
+<text br="0">, can be found by summing all the data values and dividing by the count.</text>
+<text></text>
+<control parastyle="Normal.1" vshiftabs="1" spacing="1" textstyle="Normal" data="">Fmean</control>
+</document>
+</rvxml>
+      </step>
+      <step name="msg4">
+<rvxml>
+<document stringtags="0">
+<text>Technology can be used to quickly and accurately find the standard deviation of a data set. Standard deviation, s, is the square root of the variance.</text>
+<text></text>
+<control parastyle="Normal.1" vshiftabs="1" spacing="1" textstyle="Normal" data="">Fsd</control>
+</document>
+</rvxml>
+      </step>
+      <step name="msg5">
+<rvxml>
+<document stringtags="0">
+<text>At least one of your answers is incorrect. To choose between sample mean and median, start by looking at the data. Use technology to construct a histogram of the data. If the histogram of the data is symmetric and there are no outliers, choose the sample mean. However, if the histogram is skewed or has outliers, choose the median. A distribution is skewed if it&#39;s not symmetric and one tail stretches out farther than the other. Distributions are said to be skewed left (or negatively) when the longer tail stretches to the left (in the negative direction), and skewed right (or positively) when it goes to the right (in the positive direction). A calculated summary measure is said to be resistant if it is affected only a limited amount by any small bunch of cases, such as outliers.</text>
+</document>
+</rvxml>
+      </step>
+      <step name="msg6">
+<rvxml>
+<document stringtags="0">
+<text>At least one of your answers is incorrect. A calculated summary measure is said to be resistant if it is affected only a limited amount by any small bunch of cases, such as outliers.</text>
+</document>
+</rvxml>
+      </step>
+      <step name="msg7">
+<rvxml>
+<document stringtags="0">
+<text>At least one of your answers is incorrect. Review the calculated statistics.</text>
+</document>
+</rvxml>
+      </step>
+      <step name="msg8">
+<rvxml>
+<document stringtags="0">
+<text>At least one of your answers is incorrect. Technology can be used to quickly and accurately find a data value that is a certain number of standard deviations from the mean. The Empirical Rule states:</text>
+<text parastyle="Normal.1">i. About 68% of the data will lie within 1 standard deviation of the mean.</text>
+<text parastyle="Normal.1">ii. About 95% of the data will lie within 2 standard deviations of the mean.</text>
+<text parastyle="Normal.1">iii. Virtually all of the data will lie within 3 standard deviations of the mean.</text>
+</document>
+</rvxml>
+      </step>
+    </window>
+    <window name="popups">
+      <step name="popup1">
+<rvxml>
+<document stringtags="0">
+<table parastyle="Center" rows="26" cols="3" borderstyle="color" cellborderstyle="color" color="clNone">
+<row>
+<cell th="col" width="75">
+<text>Country</text>
+</cell>
+<cell th="col" width="75">
+<text parastyle="Center">Score</text>
+</cell>
+<cell rowspan="26" width="1">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">DT1</control>
+</cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.01</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.01</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.02</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.02</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.03</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.03</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.04</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.04</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.05</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.05</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.06</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.06</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.07</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.07</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.08</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.08</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.09</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.09</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.10</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.10</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.11</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.11</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.12</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.12</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.13</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.13</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.14</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.14</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.15</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.15</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.16</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.16</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.17</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.17</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.18</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.18</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.19</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.19</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.20</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.20</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.21</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.21</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.22</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.22</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.23</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.23</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.24</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.24</control>
+</cell>
+<cell></cell>
+</row>
+<row>
+<cell width="75">
+<control vshiftabs="1" spacing="1" textstyle="Normal" data="">iCountry.25</control>
+</cell>
+<cell width="75">
+<control parastyle="Center" vshiftabs="1" spacing="1" textstyle="Normal" data="">iData.25</control>
+</cell>
+<cell></cell>
+</row>
+</table>
+</document>
+</rvxml>
+      </step>
+    </window>
+  </windows>
+
+  <layout type="topbottom">
+    <frame window="top"/>
+    <frame window="bottom"/>
+  </layout>
+
+  <controller>
+    <display step="step1"/>
+    <display step="step2"/>
+    <display step="step4"/>
+    <display step="step5"/>
+    <display step="step6"/>
+    <display step="step7"/>
+    <display step="step8"/>
+    <display step="step9"/>
+    <display step="step10"/>
+  </controller>
+
+</tdx>
